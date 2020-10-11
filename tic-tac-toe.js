@@ -1,9 +1,37 @@
 "use strict"
 document.addEventListener('DOMContentLoaded', ()  => {
-  const board = document.getElementById("board").children;
+  const gameBoard = document.getElementById("board").children;
+  const squares=document.querySelectorAll("board");
+  const xs= "X";
+  const os="O";
+  let clicked;
+  let turn=true;
+  
   var i;
-  for(i=0;i<board.length;i++){
-    board[i].setAttribute("class","square");
+  var plays=["","","","","","","","",""];
+
+  for(i=0;i<gameBoard.length;i++){
+    gameBoard[i].setAttribute("class","square");
+    gameBoard[i].addEventListener('click',clicks);
   } 
+  
+  function clicks(event) {
+    var index=plays.indexOf(event.target);
+    console.log(plays);
+    if(turn==true || clicked==os){
+      event.target.innerHTML= xs;
+      event.target.classList.add("X");
+      clicked= xs;
+      turn=false;
+    }
+    else if(clicked==xs || turn==false){
+      event.target.innerHTML=os;
+      event.target.classList.add("O");
+      clicked=os;
+      turn=true;
+    }  
+  }
+
+  
 
 })
