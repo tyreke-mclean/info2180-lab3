@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', ()  => {
   for(i=0;i<gameBoard.length;i++){
     gameBoard[i].setAttribute("class","square");
     gameBoard[i].addEventListener('click',clicks);
+    gameBoard[i].addEventListener('mouseenter',hoverStyle);
+    gameBoard[i].addEventListener('mouseleave',hoverRevert);
   } 
   
   function clicks(event) {
@@ -32,6 +34,13 @@ document.addEventListener('DOMContentLoaded', ()  => {
     }  
   }
 
-  
+  function hoverStyle(event){
+    event.target.classList.add('hover');
+    
+  } 
+  function hoverRevert(event){
+   
+    event.target.classList.remove('hover');
+  }  
 
 })
