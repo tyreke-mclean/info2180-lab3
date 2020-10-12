@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', ()  => {
 
   for(i=0;i<gameBoard.length;i++){
     gameBoard[i].setAttribute("class","square");
-    gameBoard[i].addEventListener('click',clicks);
+    gameBoard[i].addEventListener('click',clicks,{once:true});
     gameBoard[i].addEventListener('mouseenter',hoverStyle);
     gameBoard[i].addEventListener('mouseleave',hoverRevert);
     gameBoard[i].addEventListener('click',checkWinner);
